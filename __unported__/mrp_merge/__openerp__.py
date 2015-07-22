@@ -20,7 +20,7 @@
 ##############################################################################
 
 {
-    'name': "El Nogal Productions Merge",
+    'name': "MRP merge",
     'version': '1.0',
     'category': '',
     'description': """Adds a new wizard that allows merging two or more production orders""",
