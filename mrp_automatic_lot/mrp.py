@@ -27,7 +27,8 @@ class MrpProduction(models.Model):
 
     _inherit = "mrp.production"
 
-    final_lot_id = fields.Many2one("stock.production.lot", 'Final Lot')
+    final_lot_id = fields.Many2one("stock.production.lot", 'Final Lot',
+                                   copy=False)
 
     def _make_production_produce_line(self, cr, uid, production, context=None):
         res = super(MrpProduction, self).\
