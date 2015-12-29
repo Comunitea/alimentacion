@@ -22,31 +22,25 @@
 
 """Creates prodlot sequence chooose product sequence"""
 
-from openerp import models
+from openerp import models, api
 
 
 class StockProductionLot(models.Model):
 
     _inherit = "stock.production.lot"
 
-    def make_sscc(self, cr, uid, context=None):
+    @api.model
+    def make_sscc(self):
         """return production lot number"""
-        if context is None:
-            context = {}
-        seq_obj = self.pool.get('ir.sequence')
-
-        if (context.get('product_id', False) or
-                context.get('default_product_id', False)):
-            prod = context.get('product_id', False) or \
-                context.get('default_product_id', False)
-            sequence_obj_id = self.pool.get('product.product')\
-                .browse(cr, uid, prod).sequence_id
-            if sequence_obj_id:
-                sequence_id = sequence_obj_id.id
-                sequence_number = seq_obj.get_id(cr, uid, sequence_id)
-                return sequence_number
-
-        sequence = seq_obj.get(cr, uid, 'stock.lot.serial')
+        seq_obj = self.env['ir.sequence']
+        product_id = self._context.get('product_id', False) or \
+            self._context.get('default_product_id', False)
+        product = self.env['product.product'].browse(product_id)
+        if product and product.sequence_id:
+            sequence_id = product.sequence_id.id
+        else:
+            sequence_id = self.env.ref('stock.sequence_production_lots').id
+        sequence = seq_obj.get_id(sequence_id)
         return sequence
 
     _defaults = {
