@@ -35,6 +35,7 @@ class report_stock_simplified(models.AbstractModel):
         cr.execute("select * from pg_language where lanname = 'plpgsql'")
         if not cr.rowcount:
             cr.execute("create language 'plpgsql'")
+        cr.execute('DROP FUNCTION stock_move_parents(integer)')
 
         #creates a function. From int parameter return the stock_move top parents for this paramenter
         cr.execute("""create or replace function stock_move_parents (integer)
@@ -64,6 +65,7 @@ class report_stock_simplified(models.AbstractModel):
                 END; '
                 language 'plpgsql';""")
 
+        cr.execute('DROP FUNCTION stock_move_childs(integer)')
         #creates a function. From int parameter return the stock_move last childs for this paramenter
         cr.execute("""create or replace function stock_move_childs (integer)
             returns setof stock_move as

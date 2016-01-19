@@ -8,11 +8,12 @@
             <field name="type">form</field>
             <field name="inherit_id" ref="product.product_normal_form_view"/>
             <field name="arch" type="xml">
-                <field name="price_extra" position="after">
-                    <field name="theoric_cost"/>
-                    <newline/>
-                    <button name="action_product_costs" string="Product Costs" type="object" context="{'product_id': active_id}" icon="gtk-go-up" colspan="2"/>
-                </field>
+                <!-- SE COMENTO PORQUE NO ENCUENTRA EN LA VISTA PADRE-->
+                <!--<field name="price_extra" position="after">-->
+                    <!--<field name="theoric_cost"/>-->
+                    <!--<newline/>-->
+                    <!--<button name="action_product_costs" string="Product Costs" type="object" context="{'product_id': active_id}" icon="gtk-go-up" colspan="2"/>-->
+                <!--</field>-->
             </field>
         </record>
     </data>
