@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2014 Pexego (<www.pexego.es>). All Rights Reserved
+#    Copyright (C) 2015 Comunitea Servicios Tecnológicos (<www.comunitea.com>)
 #    $Omar Castiñeira Saavedra$
 #
 #    This program is free software: you can redistribute it and/or modify
