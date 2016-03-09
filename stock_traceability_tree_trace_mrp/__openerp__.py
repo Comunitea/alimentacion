@@ -2,7 +2,7 @@
 ##############################################################################
 #
 #    OpenERP, Open Source Management Solution
-#    Copyright (C) 2004-2014 Pexego (<www.pexego.es>). All Rights Reserved
+#    Copyright (C) 2015 Comunitea Servicios Tecnológicos (<www.comunitea.com>)
 #    $Omar Castiñeira Saavedra$
 #
 #    This program is free software: you can redistribute it and/or modify
@@ -22,8 +22,8 @@
 
 {
     "name" : "Stock Traceability Tree, trace mrp",
-    "version" : "1.0",
-    "author" : "Pexego",
+    "version" : "8.0.1.0.0",
+    "author" : "Comunitea",
     "depends" : ["stock_traceability_tree", "mrp"],
     "category" : "Stock/Traceability",
     "data" : [],
