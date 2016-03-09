@@ -32,6 +32,8 @@ class StockProductionLot(models.Model):
     @api.model
     def make_sscc(self):
         """return production lot number"""
+        if 'in_pick' in self._context.keys():
+            return ''
         seq_obj = self.env['ir.sequence']
         product_id = self._context.get('product_id', False) or \
             self._context.get('default_product_id', False)
