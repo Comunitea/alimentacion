@@ -24,6 +24,8 @@
 
 from osv import osv, fields
 from tools.translate import _
+from openerp import tools
+
 
 class valid_stock_moves(osv.osv):
     """View that filter stock_moves by not state = 'cancel' Use this view to show traceability tree"""
@@ -90,6 +92,7 @@ class valid_stock_moves(osv.osv):
 
     def init(self, cr):
         """creates view when install"""
+        tools.drop_view_if_exists(cr, 'valid_stock_moves')
         cr.execute("""
             create or replace view valid_stock_moves as (
                 select stock_move.id as id,stock_move.name as name,stock_move.product_id as product_id,product_qty,product_uom,prodlot_id,stock_production_lot.life_date as expiry_date,
