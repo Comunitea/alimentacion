@@ -63,7 +63,10 @@ class mrp_production(osv.osv):
                     if exist_lot_ids:
                         prod_lot_id = exist_lot_ids[0]
                     else:
-                        prod_lot_id = lot_obj.copy(cr, uid, consume_product.prodlot_id.id, {'product_id': production.product_id.id})
+                        prod_lot_id = lot_obj.copy(cr, uid, consume_product.prodlot_id.id,
+                                                   {'product_id': production.product_id.id,
+                                                    'name': consume_product.prodlot_id.name,
+                                                    'language': consume_product.prodlot_id.language.id})
             if prod_lot_id:
                 for produce_product in production.move_created_ids:
                     produce_product.write({'prodlot_id': prod_lot_id})

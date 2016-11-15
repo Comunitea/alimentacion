@@ -141,8 +141,8 @@ class mrp_production(osv.osv):
                     for parent_move in move.move_history_ids2:
                         if parent_move.location_dest_id.usage != "production":
                             to_remove_moves.append(parent_move.id)
-                    if to_remove_moves:
-                        move.write({'move_history_ids2': [(2, to_remove_moves)]})
+                    for rem_id in to_remove_moves:
+                        move.write({'move_history_ids2': [(3, rem_id)]})
         return res
 
 mrp_production()
