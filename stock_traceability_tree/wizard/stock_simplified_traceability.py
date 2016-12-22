@@ -43,8 +43,11 @@ class action_simplified_traceability(models.TransientModel):
         if context is None:
             context = {}
         type1 = context.get('type', 'simplified_parent_ids')
+        user_company_ids = self.pool.get('res.users').browse(cr, uid, [uid]).company_id
+        user_company_ids += user_company_ids.child_ids
+        company_ids = [x.id for x in user_company_ids]
         quant_obj = self.pool.get("stock.quant")
-        quants = quant_obj.search(cr, uid, [('lot_id', 'in', ids)],
+        quants = quant_obj.search(cr, uid, [('lot_id', 'in', ids), ('company_id', 'in', company_ids)],
                                   context=context)
         moves = set()
         for quant in quant_obj.browse(cr, uid, quants, context=context):
