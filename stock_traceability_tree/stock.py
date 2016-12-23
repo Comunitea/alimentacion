@@ -97,8 +97,10 @@ class StockMove(models.Model):
     def _get_related_lots_str(self, cr, uid, ids, field_name, arg, context):
         res = {}
         for move in self.browse(cr, uid, ids):
-            res[move.id] = u", ".join([x.name for x in move.lot_ids])
-
+            if len(move.lot_ids) > 1 and move.picking_id.pack_operation_ids:
+                res[move.id] = u", ".join(['%s (%s)' % (x.lot_id.name, x.product_qty) for x in move.picking_id.pack_operation_ids if x.product_id == move.product_id])
+            else:
+                res[move.id] = u", ".join([x.name for x in move.lot_ids])
         return res
 
 
@@ -197,9 +199,8 @@ class StockProductionLot(models.Model):
             if lot.quant_ids:
                 moves = []
                 for quant in lot.quant_ids:
-                    for move in quat.move_ids:
+                    for move in quant.move_ids:
                         moves.append(move.id)
-
                 res[lot.id] = list(set(moves))
             else:
                 res[lot.id] = []

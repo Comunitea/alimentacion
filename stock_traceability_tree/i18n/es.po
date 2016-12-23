@@ -1,19 +1,21 @@
 # Translation of Odoo Server.
 # This file contains the translation of the following modules:
-#   * stock_traceability_tree
+# 	* stock_traceability_tree
 #
 msgid ""
 msgstr ""
-"Project-Id-Version: Odoo Server 8.0rc1\n"
+"Project-Id-Version: Odoo Server 8.0\n"
 "Report-Msgid-Bugs-To: \n"
-"POT-Creation-Date: 2014-09-09 11:51+0000\n"
-"PO-Revision-Date: 2014-09-09 11:51+0000\n"
-"Last-Translator: <>\n"
+"POT-Creation-Date: 2016-12-22 16:51+0000\n"
+"PO-Revision-Date: 2016-12-22 18:02+0100\n"
+"Last-Translator: Pedro Gómez <pegomez@elnogal.com>\n"
 "Language-Team: \n"
 "MIME-Version: 1.0\n"
 "Content-Type: text/plain; charset=UTF-8\n"
-"Content-Transfer-Encoding: \n"
-"Plural-Forms: \n"
+"Content-Transfer-Encoding: 8bit\n"
+"Plural-Forms: nplurals=2; plural=(n != 1);\n"
+"Language: es_ES\n"
+"X-Generator: Poedit 1.8.6\n"
 
 #. module: stock_traceability_tree
 #: model:ir.model,name:stock_traceability_tree.model_action_simplified_traceability
@@ -22,8 +24,13 @@ msgstr "Trazabilidad simplificada"
 
 #. module: stock_traceability_tree
 #: model:ir.model,name:stock_traceability_tree.model_action_traceability
-msgid "Action traceability"
+msgid "Action traceability "
 msgstr "Trazabilidad"
+
+#. module: stock_traceability_tree
+#: field:stock.move,child_ids:0
+msgid "Child moves"
+msgstr "Child moves"
 
 #. module: stock_traceability_tree
 #: field:action.simplified.traceability,create_uid:0
@@ -40,7 +47,7 @@ msgstr "Creado en"
 #. module: stock_traceability_tree
 #: model:ir.model,name:stock_traceability_tree.model_report_stock_simplified
 msgid "Creates function for show the traceability simplified"
-msgstr "Función para mostrar la traabilidad simplificada"
+msgstr "Función para mostrar la trazabilidad simplificada"
 
 #. module: stock_traceability_tree
 #: view:stock.move:stock_traceability_tree.stock_move_tree
@@ -59,18 +66,25 @@ msgid "Date Expected"
 msgstr "Fecha prevista"
 
 #. module: stock_traceability_tree
+#: field:action.simplified.traceability,display_name:0
+#: field:action.traceability,display_name:0
+#: field:report.stock.simplified,display_name:0
+msgid "Display Name"
+msgstr "Nombre mostrado"
+
+#. module: stock_traceability_tree
 #: view:stock.production.lot:stock_traceability_tree.view_production_lot_form_add_traceability
 msgid "Down trace"
-msgstr "Traz. simpl."
+msgstr "Traz. abajo"
 
 #. module: stock_traceability_tree
-#: code:addons/stock_traceability_tree/wizard/stock_traceability.py:63
+#: code:addons/stock_traceability_tree/wizard/stock_traceability.py:66
 #, python-format
 msgid "Downstream Traceability"
-msgstr "Trazabilidad"
+msgstr "Trazabilidad hacia abajo"
 
 #. module: stock_traceability_tree
-#: code:addons/stock_traceability_tree/stock.py:53
+#: code:addons/stock_traceability_tree/stock.py:55
 #, python-format
 msgid "FROM INVENTORY"
 msgstr "DESDE INVENTARIO"
@@ -86,29 +100,35 @@ msgid "History"
 msgstr "Histórico"
 
 #. module: stock_traceability_tree
-#: field:action.simplified.traceability,id:0
-#: field:action.traceability,id:0
+#: field:action.simplified.traceability,id:0 field:action.traceability,id:0
 #: field:report.stock.simplified,id:0
 msgid "ID"
 msgstr "ID"
 
 #. module: stock_traceability_tree
-#: code:addons/stock_traceability_tree/stock.py:38
+#: code:addons/stock_traceability_tree/stock.py:42
 #, python-format
 msgid "IN"
 msgstr "ENTRADA"
 
 #. module: stock_traceability_tree
-#: code:addons/stock_traceability_tree/stock.py:63
+#: code:addons/stock_traceability_tree/stock.py:65
 #, python-format
 msgid "INTERNAL"
 msgstr "INTERNO"
 
 #. module: stock_traceability_tree
-#: code:addons/stock_traceability_tree/stock.py:51
+#: code:addons/stock_traceability_tree/stock.py:53
 #, python-format
 msgid "INVENTORY"
 msgstr "INVENTARIO"
+
+#. module: stock_traceability_tree
+#: field:action.simplified.traceability,__last_update:0
+#: field:action.traceability,__last_update:0
+#: field:report.stock.simplified,__last_update:0
+msgid "Last Modified on"
+msgstr "Última modificación en"
 
 #. module: stock_traceability_tree
 #: field:action.simplified.traceability,write_uid:0
@@ -125,17 +145,22 @@ msgstr "Última actualización en"
 #. module: stock_traceability_tree
 #: field:stock.move,simplified_child_ids:0
 msgid "Last childs"
-msgstr "Último hijos"
+msgstr "Últimos hijos"
 
 #. module: stock_traceability_tree
-#: model:ir.model,name:stock_traceability_tree.model_stock_production_lot
-msgid "Lot/Serial"
-msgstr "Lote/Serie"
+#: field:stock.move,lot_str:0
+msgid "Lots"
+msgstr "Lotes"
 
 #. module: stock_traceability_tree
 #: field:stock.move,move_type:0
 msgid "Move type"
 msgstr "Tipo mov."
+
+#. module: stock_traceability_tree
+#: field:stock.quant,move_ids:0
+msgid "Moved Quants"
+msgstr "Quants movidos"
 
 #. module: stock_traceability_tree
 #: view:stock.move:stock_traceability_tree.stock_move_tree
@@ -146,29 +171,39 @@ msgid "Moves"
 msgstr "Movimientos"
 
 #. module: stock_traceability_tree
-#: code:addons/stock_traceability_tree/stock.py:42
-#: code:addons/stock_traceability_tree/stock.py:47
+#: code:addons/stock_traceability_tree/stock.py:44
+#: code:addons/stock_traceability_tree/stock.py:49
 #, python-format
 msgid "OUT"
 msgstr "SALIDA"
 
 #. module: stock_traceability_tree
-#: code:addons/stock_traceability_tree/stock.py:59
+#: code:addons/stock_traceability_tree/stock.py:61
 #, python-format
 msgid "PROCUREMENT"
 msgstr "ABASTECIMIENTO"
 
 #. module: stock_traceability_tree
-#: code:addons/stock_traceability_tree/stock.py:55
+#: code:addons/stock_traceability_tree/stock.py:57
 #, python-format
 msgid "PRODUCTION"
 msgstr "PRODUCCION"
 
 #. module: stock_traceability_tree
-#: code:addons/stock_traceability_tree/stock.py:57
+#: code:addons/stock_traceability_tree/stock.py:59
 #, python-format
 msgid "PRODUCTION FINAL MOVE"
 msgstr "MOV. FINAL PRODUCCION"
+
+#. module: stock_traceability_tree
+#: field:stock.move,parent_ids:0
+msgid "Parent moves"
+msgstr "Parent moves"
+
+#. module: stock_traceability_tree
+#: model:ir.model,name:stock_traceability_tree.model_stock_production_lot
+msgid "Production lot"
+msgstr "Lote de producción"
 
 #. module: stock_traceability_tree
 #: model:ir.model,name:stock_traceability_tree.model_stock_quant
@@ -176,13 +211,19 @@ msgid "Quants"
 msgstr "Quants"
 
 #. module: stock_traceability_tree
+#: code:addons/stock_traceability_tree/stock.py:38
 #: code:addons/stock_traceability_tree/stock.py:40
 #, python-format
 msgid "RETURN"
 msgstr "DEVOLUCION"
 
 #. module: stock_traceability_tree
-#: code:addons/stock_traceability_tree/stock.py:49
+#: field:stock.production.lot,move_related_ids:0
+msgid "Related moves"
+msgstr "Movimientos relacionados"
+
+#. module: stock_traceability_tree
+#: code:addons/stock_traceability_tree/stock.py:51
 #, python-format
 msgid "SCRAP"
 msgstr "DESECHO"
@@ -190,21 +231,21 @@ msgstr "DESECHO"
 #. module: stock_traceability_tree
 #: view:stock.production.lot:stock_traceability_tree.view_production_lot_form_add_traceability
 msgid "Simple down trace"
-msgstr "Simple down trace"
+msgstr "Traz. simpl. abajo"
 
 #. module: stock_traceability_tree
 #: view:stock.production.lot:stock_traceability_tree.view_production_lot_form_add_traceability
 msgid "Simple up trace"
-msgstr "Traz. simpl."
+msgstr "Traz. simpl. arriba"
 
 #. module: stock_traceability_tree
-#: code:addons/stock_traceability_tree/wizard/stock_simplified_traceability.py:63
+#: code:addons/stock_traceability_tree/wizard/stock_simplified_traceability.py:66
 #, python-format
 msgid "Simplified Downstream Traceability"
 msgstr "Trazabilidad simpificada hacia abajo"
 
 #. module: stock_traceability_tree
-#: code:addons/stock_traceability_tree/wizard/stock_simplified_traceability.py:62
+#: code:addons/stock_traceability_tree/wizard/stock_simplified_traceability.py:65
 #, python-format
 msgid "Simplified Upstream Traceability"
 msgstr "Trazabilidad simplificada hacia arriba"
@@ -215,7 +256,12 @@ msgid "Stock Move"
 msgstr "Movimiento de existencias"
 
 #. module: stock_traceability_tree
-#: code:addons/stock_traceability_tree/stock.py:61
+#: model:ir.actions.act_window,name:stock_traceability_tree.action_open_move_from_tree
+msgid "Stock Moves"
+msgstr "Movimientos de existencias"
+
+#. module: stock_traceability_tree
+#: code:addons/stock_traceability_tree/stock.py:63
 #, python-format
 msgid "TRANSIT"
 msgstr "TRANSITO"
@@ -231,11 +277,10 @@ msgstr "UdM"
 #. module: stock_traceability_tree
 #: view:stock.production.lot:stock_traceability_tree.view_production_lot_form_add_traceability
 msgid "Up trace"
-msgstr "Trazabilidad"
+msgstr "Traz. arriba"
 
 #. module: stock_traceability_tree
-#: code:addons/stock_traceability_tree/wizard/stock_traceability.py:62
+#: code:addons/stock_traceability_tree/wizard/stock_traceability.py:65
 #, python-format
 msgid "Upstream Traceability"
 msgstr "Trazabilidad hacia arriba"
-
