@@ -42,7 +42,7 @@
                     <field name="location_dest_id" />
                     <field name="move_type"/>
                     <field name="date" string="Date"/>
-                     <field name="date_expected" string="Date Expected"/>
+                    <field name="date_expected" string="Date Expected"/>
                     <field name="state"/>
                 </tree>
             </field>
@@ -65,7 +65,7 @@
                     <field name="location_dest_id" />
                     <field name="move_type"/>
                     <field name="date" string="Date"/>
-                     <field name="date_expected" string="Date Expected"/>
+                    <field name="date_expected" string="Date Expected"/>
                     <field name="state"/>
                 </tree>
             </field>
@@ -88,17 +88,27 @@
                     <field name="location_dest_id" />
                     <field name="move_type"/>
                     <field name="date" string="Date"/>
-                     <field name="date_expected" string="Date Expected"/>
+                    <field name="date_expected" string="Date Expected"/>
                     <field name="state"/>
                 </tree>
             </field>
         </record>
 
+        <!-- 
         <act_window
             id="action_open_lots from moves"
             name="Related lots"
             domain="[('move_related_ids','in',[active_id])]"
             res_model="stock.production.lot"
+            src_model="stock.move"
+            key2="tree_but_open"/>
+        -->
+
+        <act_window
+            id="action_open_move_from_tree"
+            name="Stock Moves"
+            domain="[('id','in',[active_id])]"
+            res_model="stock.move"
             src_model="stock.move"
             key2="tree_but_open"/>
 
@@ -108,10 +118,10 @@
             <field name="inherit_id" ref="stock.view_production_lot_form"/>
             <field name="arch" type="xml">
                 <button name="action_traceability" position="replace">
-                    <button name="action_traceability" class="oe_stat_button" string="History" type="object" attrs="{'invisible': [('quant_ids','=',[])]}"/>
+                    <button name="action_traceability" class="oe_stat_button" string="History" type="object" icon="fa-history" attrs="{'invisible': [('quant_ids','=',[])]}"/>
                     <button name="action_tree_traceability" string="Up trace" type="object" icon="fa-arrow-up" class="oe_stat_button" attrs="{'invisible': [('quant_ids','=',[])]}"/>
-                    <button name="action_tree_traceability" string="Down trace" type="object" context="{'type': 'child_ids'}" icon="fa-arrow-down" class="oe_stat_button" attrs="{'invisible': [('quant_ids','=',[])]}"/>
                     <button name="action_simplified_tree_traceability" string="Simple up trace" type="object" icon="fa-arrow-up" class="oe_stat_button" attrs="{'invisible': [('quant_ids','=',[])]}"/>
+                    <button name="action_tree_traceability" string="Down trace" type="object" context="{'type': 'child_ids'}" icon="fa-arrow-down" class="oe_stat_button" attrs="{'invisible': [('quant_ids','=',[])]}"/>
                     <button name="action_simplified_tree_traceability" string="Simple down trace" type="object" context="{'type': 'simplified_child_ids'}" icon="fa-arrow-down" class="oe_stat_button" attrs="{'invisible': [('quant_ids','=',[])]}"/>
                 </button>
             </field>
