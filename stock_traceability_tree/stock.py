@@ -97,8 +97,12 @@ class StockMove(models.Model):
     def _get_related_lots_str(self, cr, uid, ids, field_name, arg, context):
         res = {}
         for move in self.browse(cr, uid, ids):
-            if len(move.lot_ids) > 1 and move.picking_id.pack_operation_ids:
-                res[move.id] = u", ".join(['%s (%s)' % (x.lot_id.name, x.product_qty) for x in move.picking_id.pack_operation_ids if x.product_id == move.product_id])
+            if len(move.lot_ids) > 1:
+                res[move.id] = u", ".join(['%s (%s)'
+                    % (x.name,
+                       sum([y.qty for y in move.quant_ids
+                            if y.lot_id == x and y.qty > 0])
+                      ) for x in move.lot_ids])
             else:
                 res[move.id] = u", ".join([x.name for x in move.lot_ids])
         return res
