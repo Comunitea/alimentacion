@@ -33,12 +33,12 @@ class MrpProduction(models.Model):
     def _make_production_produce_line(self, cr, uid, production, context=None):
         res = super(MrpProduction, self).\
             _make_production_produce_line(cr, uid, production, context=context)
-
-        lot_obj = self.pool.get('stock.production.lot')
-        product_id = production.product_id.id
-        prodlot_id = lot_obj.create(cr, uid,
-                                    {'product_id': product_id},
-                                    context={'product_id': product_id})
-        production.write({'final_lot_id': prodlot_id})
+        if not production.final_lot_id:
+            lot_obj = self.pool.get('stock.production.lot')
+            product_id = production.product_id.id
+            prodlot_id = lot_obj.create(cr, uid,
+                                        {'product_id': product_id},
+                                        context={'product_id': product_id})
+            production.write({'final_lot_id': prodlot_id})
 
         return res
